@@ -11,7 +11,7 @@ const SingIn = ({navigation}) => {
                     <TextInput style={style.input} placeholder='Email'/>
                     <TextInput style={[style.input, style.noMargin]} placeholder='Password'/>
                     <Text style={style.text}>Forgot your password ?</Text>
-                    <Pressable style={style.button}>
+                    <Pressable style={style.button} onPress={() => navigation.navigate('Slider')}>
                         <Text style={style.buttonText}>Sing In</Text>
                     </Pressable>                    
                 </SafeAreaView>

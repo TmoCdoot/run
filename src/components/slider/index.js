@@ -2,10 +2,13 @@ import React, { useState } from 'react';
 import { Text, View, StyleSheet, SafeAreaView, TextInput, Button, Animated, Dimensions, Image, ScrollView } from 'react-native';
 import { useRef } from 'react';
 
+import Home from '../home';
+import Inventory from '../inventory';
+import Shop from '../shop';
 
 
 const { width, height } = Dimensions.get("window");
-const Slider = ({navigation}) => {
+const Slider = () => {
     const ref = useRef();
     const [index, setIndex] = useState(0);
 
@@ -28,18 +31,10 @@ const Slider = ({navigation}) => {
             initialScrollIndex={index}
             Ind
             >
-                <Slide label="home" />
-                <Slide label="inventory" />
-                <Slide label="shop"/>
+                <Home label="home" />
+                <Inventory label="inventory" />
+                <Shop label="shop"/>
             </Animated.ScrollView>
-        </View>
-    )
-}
-
-const Slide = ({label}) => {
-    return(
-        <View style={[style.view, { width, height }]}>
-            <Text>{label}</Text>
         </View>
     )
 }

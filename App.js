@@ -9,23 +9,6 @@ import Slider from './src/components/slider';
 
 const Stack = createNativeStackNavigator();
 
-/* function singUp() {
-  return (
-      <View style={style.container}>
-          <View style={style.form}>
-              <Text>dze</Text>
-              <SafeAreaView>
-                  <TextInput style={style.input} placeholder='Email'/>
-                  <TextInput style={style.input} placeholder='Password'/>
-                  <Text>Forgot your password ?</Text>
-                  <Button title='Sign In'/>
-                  <Button title='Sign Up'/>
-              </SafeAreaView>
-          </View>
-      </View>
-  )
-} */
-
 const app = () => {
   return (
     <NavigationContainer>

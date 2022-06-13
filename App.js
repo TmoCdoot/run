@@ -9,7 +9,7 @@ import Slider from './src/components/slider';
 
 const Stack = createNativeStackNavigator();
 
-const app = () => {
+const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
@@ -23,4 +23,4 @@ const app = () => {
 
 
 
-export default app;
+export default App;

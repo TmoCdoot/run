@@ -7,61 +7,87 @@ const { width, height } = Dimensions.get("window");
 const App = () => {
     return (
         <View style={[style.view, { width, height }]}>
-            
-            <View style={[style.containerViewTop, {width}]}>
+
+            <View style={[style.containerViewTop, { width }]}>
+
+                <View style={style.viewCardDown}>
+                    <View style={[style.viewCardDownLeft, style.shadow]}>
+                        <View style={[{ alignItems: "center" }]}>
+                            <Text style={[style.cardDownText]}>Item le plus utiliser</Text>
+                            <Text style={style.cardData}>X-Runner High</Text>
+                            <Text style={style.cardData2}>Black and red</Text>
+                        </View>
+                        <Image style={style.userShoes} source={require('../../images/shoes-white.png')} />
+                    </View>
+                </View>
 
                 <View style={style.viewCardUp}>
-                    <View style={[style.viewCardUpLeft, style.center]}>
-                        <Text style={[style.cardUpText, style.blue]}>Temps total</Text>
+                    <View style={[style.viewCardUpLeft, style.center, style.shadow]}>
+                        <Text style={[style.cardUpText]}>Temps total</Text>
                         <Text style={style.cardData}>89.3 MIN</Text>
                     </View>
-                    <View style={[style.viewCardUpRigth, style.center]}>
-                        <Text style={[style.cardUpText, style.green]}>Distance total</Text>
+                    <View style={[style.viewCardUpRigth, style.center, style.shadow]}>
+                        <Text style={[style.cardUpText]}>Distance total</Text>
                         <Text style={style.cardData}>10.3 KM</Text>
                     </View>
                 </View>
 
-                <View style={style.viewCardDown}>
-                    <View style={[style.viewCardDownLeft, style.center]}>
-                        <Text style={[style.cardUpText, style.red]}>Item le plus utiliser</Text>
-                        <Text style={style.cardData}>X-Runner High</Text>
-                        <Text style={style.cardData2}>Black and red</Text>
-                    </View>
-                </View>
-
-                <View style={style.viewTopButton}>
-                    <Pressable style={style.button} /* onPress={() => navigation.navigate('Slider')} */>
-                        <Text style={style.buttonText}>START</Text>
-                    </Pressable>   
-                </View>
+                
 
             </View>
 
             <View style={[style.viewDown, { width }]}>
 
-                <View style={style.viewDownCard}>
-                    <Text>Temps moyen</Text>
-                    <Text>29.5 min</Text>
-                </View>
+                <Text style={[{ fontSize: 20, fontWeight: "700", position: "absolute", left: 35, top: 25 }]}>Performances</Text>
 
-                <View style={style.viewDownCard}>
-                    <Text>Distance moyenne</Text>
-                    <Text>4.8 km</Text>
-                </View>
+                <View style={[{ flexDirection: "row", borderWidth: 1, width: width, marginTop: 70, alignItems: "center", justifyContent: "center", justifyContent: "space-between", paddingHorizontal: 30}]}>
+                    <View>
+                        <View style={style.viewDownLargCard}>
+                            
+                        </View>
+                    </View>
 
-                <View style={style.viewDownCard}>
-                    <Text>Vitesse moyen</Text>
-                    <Text>13.5 km/h</Text>
-                </View>
+                    <View >
+                        <View style={style.viewDownCard}>
+                            <View style={style.containerImg}>
+                                <Image style={style.cardImg} source={require('../../images/clock.png')} />
+                            </View>
+                            <View style={style.containerData}>
+                                <Text style={[{ fontSize: 10, fontWeight: "600", color: "#D9D9D9" }]}>Temps moyen</Text>
+                                <Text style={[{ fontSize: 12, fontWeight: "600", color: "#555555", marginTop: 5 }]}>29.5 min</Text>
+                            </View>
 
-                <View style={style.viewDownLargCard}>
-                    <Text style={style.xpTitle}>Experience</Text>
-                    <View style={style.xpBar}></View>
-                    <View style={style.xpBarLv}>
-                        <Text>Lv 7</Text>
-                        <Text>Lv 8</Text>
+                        </View>
+
+                        <View style={style.viewDownCard}>
+                            <View style={style.containerImg}>
+                                <Image style={style.cardImg} source={require('../../images/distance.png')} />
+                            </View>
+                            <View style={style.containerData}>
+                                <Text style={[{ fontSize: 10, fontWeight: "600", color: "#D9D9D9" }]}>Distance moyenne</Text>
+                                <Text style={[{ fontSize: 12, fontWeight: "600", color: "#555555", marginTop: 5 }]}>4.8 km</Text>
+                            </View>
+                        </View>
+
+                        <View style={style.viewDownCard}>
+                            <View style={style.containerImg}>
+                                <Image style={style.cardImg} source={require('../../images/speed.png')} />
+                            </View>
+                            <View style={style.containerData}>
+                                <Text style={[{ fontSize: 10, fontWeight: "600", color: "#D9D9D9" }]}>Vitesse moyen</Text>
+                                <Text style={[{ fontSize: 12, fontWeight: "600", color: "#555555", marginTop: 5 }]}>13.5 km/h</Text>
+                            </View>
+                        </View>
                     </View>
                 </View>
+
+                <View style={style.viewTopButton}>
+                    <Pressable style={[style.button, style.shadow]} /* onPress={() => navigation.navigate('Slider')} */>
+                        <Text style={style.buttonText}>START</Text>
+                    </Pressable>
+                </View>
+
+
             </View>
 
         </View>
@@ -72,15 +98,13 @@ const App = () => {
 const style = StyleSheet.create({
     view: {
         alignItems: "center",
+        backgroundColor: "#CEDDDA"
     },
     containerViewTop: {
-        borderWidth: 1,
         height: 500,
-        borderBottomRightRadius: 50,
-        borderBottomLeftRadius: 50,
-        paddingTop: 60,
+        paddingTop: 130,
         paddingHorizontal: 20,
-        backgroundColor: "#F0FBF9"
+        backgroundColor: "#CEDDDA"
     },
     viewTop: {
         //borderWidth: 1,
@@ -110,7 +134,7 @@ const style = StyleSheet.create({
     },
     viewCardUp: {
         //borderWidth: 1,
-        marginTop:50,
+        marginTop: 50,
         flexDirection: 'row',
         justifyContent: "space-around",
         marginBottom: 20
@@ -118,26 +142,40 @@ const style = StyleSheet.create({
     viewCardUpLeft: {
         borderRadius: 30,
         width: 165,
-        height: 130,
+        height: 98,
         alignItems: "center",
-        backgroundColor: "#CFE2DF"
+        backgroundColor: "#7E8E8C",
+    },
+    shadow: {
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 5,
+        },
+        shadowOpacity: 0.34,
+        shadowRadius: 6.27,
+
+        elevation: 10,
     },
     viewCardUpRigth: {
         borderRadius: 30,
         width: 165,
-        height: 130,
+        height: 98,
         alignItems: "center",
-        backgroundColor: "#CFE2DF"
+        backgroundColor: "#7E8E8C"
     },
     viewCardDown: {
         alignItems: "center"
     },
     viewCardDownLeft: {
         borderRadius: 30,
-        width: 290,
-        height: 130,
+        paddingHorizontal: 20,
+        width: 336,
+        height: 109,
         alignItems: "center",
-        backgroundColor: "#CFE2DF"
+        flexDirection: "row",
+        justifyContent: "space-between",
+        backgroundColor: "#7E8E8C"
     },
     viewTopButton: {
         alignItems: "center"
@@ -154,15 +192,23 @@ const style = StyleSheet.create({
     },
     buttonText: {
         fontSize: 20,
+        color: "#FFFFFF",
         fontFamily: "Epilogue",
         fontWeight: "700",
         fontStyle: "normal"
     },
     cardUpText: {
-        marginTop: 22,
+        marginTop: 15,
         marginBottom: 15,
         fontSize: 16,
-        fontWeight: "700"
+        fontWeight: "700",
+        color: "#D9D9D9"
+    },
+    cardDownText: {
+        marginBottom: 15,
+        fontSize: 16,
+        fontWeight: "700",
+        color: "#D9D9D9"
     },
     red: {
         color: "#CA1800"
@@ -175,7 +221,8 @@ const style = StyleSheet.create({
     },
     cardData: {
         fontWeight: "700",
-        fontSize: 24
+        fontSize: 24,
+        color: "#FFFFFF"
     },
     center: {
         alignContent: "space-around"
@@ -183,52 +230,81 @@ const style = StyleSheet.create({
     cardData2: {
         fontSize: 14,
         fontWeight: "700",
-        color: "#555555"
+        color: "#C1C1C1"
     },
     viewDown: {
         //borderWidth: 1,
         alignItems: "center",
-        marginTop: 5
+        //marginTop: 5,
+        borderTopLeftRadius: 50,
+        borderTopRightRadius: 50,
+        height: 410,
+        backgroundColor: "#F7F7F7",
+        position: "absolute",
+        bottom: 0,
     },
     viewDownCard: {
-        borderWidth: 1,
+        //borderWidth: 1,
         flexDirection: "row",
-        justifyContent: "space-between",
-        width: 314,
-        height: 30,
+        //justifyContent: "space-between",
+        width: 150,
+        height: 40,
         alignItems: "center",
         paddingHorizontal: 10,
         borderRadius: 50,
-        marginVertical: 10,
-        backgroundColor: "#F0FBF9",
+        marginTop: 10,
+        marginBottom: 5
+        //backgroundColor: "#F0FBF9",
     },
     viewDownLargCard: {
-        borderWidth: 1,
+        //borderWidth: 1,
         flexDirection: "column",
         justifyContent: "space-between",
-        width: 314,
-        height: 80,
+        height: 150,
+        width: 150,
         alignItems: "center",
-        paddingVertical: 10,
-        borderRadius: 20,
-        marginVertical: 10,
-        backgroundColor: "#F0FBF9",
+        //paddingVertical: 10,
+        borderRadius: 100,
+        //marginVertical: 10,
+        backgroundColor: "#94A3A1",
 
     },
     xpTitle: {
         textAlign: "left",
-        width: 270
+        //width: 270
     },
     xpBar: {
         backgroundColor: "#00CA85",
         height: 10,
-        width: 270,
+        //width: 270,
         borderRadius: 50,
     },
     xpBarLv: {
         flexDirection: "row",
         justifyContent: "space-between",
-        width: 270
+        //width: 270
+    },
+    userShoes: {
+        width: 64,
+        transform: [{ rotateY: "180deg" }]
+    },
+    containerImg: {
+        backgroundColor: "#D9D9D9",
+        height: 40,
+        width: 40,
+        justifyContent: "center",
+        alignItems: "center",
+        borderRadius: 10
+    },
+    cardImg: {
+        width: 20,
+        height: 20
+    },
+    containerData: {
+        marginLeft: 7,
+        height: 40,
+        //borderWidth: 1,
+        flexDirection: "column",
     }
 })
 

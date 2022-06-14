@@ -30,10 +30,13 @@ const App = () => {
             <View style={[style.viewTop, { width }]}>
                 <View style={style.viewTopLeft}>
                     <Image style={style.img} source={require('../../images/coins.png')} />
-                    <Text>25 coins</Text>
+                    <Text style={[{textAlign: "right", fontSize: 12, fontWeight: "700", color: "#555555"}]}>25 coins</Text>
                 </View>
                 <View style={style.viewTopRigth}>
-                    <Text>25 km</Text>
+                    <View style={[{flexDirection: "column", justifyContent: "flex-end"}]}>
+                        <Text style={[{textAlign: "right", fontSize: 16, fontWeight: "700", color: "#9D9D9D"}]}>Hi</Text>
+                        <Text style={[{textAlign: "right", fontSize: 20, fontWeight: "700", color: "#555555"}]}>Kevin XXX</Text>
+                    </View>
                     <Image style={style.imgUser} source={require('../../images/user.png')} />
                 </View>
             </View>
@@ -49,13 +52,13 @@ const App = () => {
 
 const style = StyleSheet.create({
     container: {
-        borderWidth: 1,
+        //borderWidth: 1,
         position: "absolute",
         bottom: 0,
         height: 85,
         borderTopLeftRadius: 50,
         borderTopRightRadius: 50,
-        backgroundColor: "#F0FBF9",
+        //backgroundColor: "#F0FBF9",
         flex: 1,
         justifyContent: "space-around",
         paddingTop: 25,
@@ -79,18 +82,22 @@ const style = StyleSheet.create({
         alignItems: "center",
         justifyContent: "space-between",
         marginBottom: 20,
-        paddingHorizontal: 30
+        paddingHorizontal: 30,
+        alignItems: "flex-end"
     },
     viewTopLeft: {
+        //borderWidth: 1,
         flexDirection: "row",
+        alignItems: "flex-end"
     },
     viewTopRigth: {
+        //borderWidth: 1,
         flexDirection: "row",
         alignItems: "center",
     },
     img: {
-        width: 20,
-        height: 20,
+        width: 25,
+        height: 25,
         marginRight: 5
     },
     imgUser: {

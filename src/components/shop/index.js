@@ -56,7 +56,7 @@ const DATA = [
   ];
   
   const Item = ({ title }) => (
-    <View style={style.viewItem}>
+    <View style={[style.viewItem, style.shadow]}>
         <Image style={style.img} source={require('../../images/shoes.png')} />
     </View>
   );
@@ -71,9 +71,9 @@ const App = () => {
         <View style={[style.view, { width, height }]}>
 
             <Text style={[style.title]}>Shop</Text>
-            <View style={style.containerFilter}>
+            <View style={[style.containerFilter, style.shadow]}>
 
-                <View style={style.itemType}>
+                <View style={[style.itemType, style.shadow]}>
                     <Pressable style={style.buttonActive} /* onPress={() => navigation.navigate('Slider')} */>
                         <Text style={style.switchText}>Items</Text>
                     </Pressable>   
@@ -87,11 +87,11 @@ const App = () => {
 
                 <View style={style.otherFilter}>
                     
-                    <Pressable style={style.selectFilter} /* onPress={() => navigation.navigate('Slider')} */>
+                    <Pressable style={[style.selectFilter, style.shadow]} /* onPress={() => navigation.navigate('Slider')} */>
                             <Text style={style.filterText}>Filters ↓</Text>
                     </Pressable> 
 
-                    <View style={style.modelItem}>
+                    <View style={[style.modelItem, style.shadow]}>
                         <Pressable style={style.buttonNoActiveModel} /* onPress={() => navigation.navigate('Slider')} */>
                             <Text style={style.switchTextModel}>Items</Text>
                         </Pressable>   
@@ -127,43 +127,50 @@ const style = StyleSheet.create({
         flex: 1,
         alignItems: "center",
     },
+    img: {
+        transform: [{ rotateY: "180deg" }]
+    },
     title: {
-        marginTop: 100,
+        marginTop: 120,
         fontWeight: "700",
-        fontSize: 20
+        fontSize: 20,
+        color: "#555555",
     },
     containerFilter: {
         width: 330,
         height: 125,
-        backgroundColor: "#F0FBF9",
+        backgroundColor: "#CEDDDA",
         borderRadius: 20,
-        borderWidth: 2,
+        //borderWidth: 2,
         marginTop: 10,
-        alignItems: "center"
+        alignItems: "center",
+        zIndex: 900,
+        marginBottom: 20
     },
     itemType: {
-        borderWidth: 2,
+        //borderWidth: 2,
         flexDirection: "row",
-        width: 250,
+        width: 270,
         justifyContent: "space-around",
         borderRadius: 20,
         height: 40,
         alignItems: "center",
-        marginTop: 15
+        marginTop: 15,
+        backgroundColor: "#99A9A6"
     },
     switchText: {
         fontSize: 14,
         fontWeight: "700",
-
+        color: "#FFFFFF"
     },
     buttonActive: {
         backgroundColor: "#00CA85",
         borderRadius: 20,
-        height: 40,
-        width: 85,
+        height: 30,
+        width: 70,
         alignItems: "center",
         justifyContent: "center",
-        borderWidth: 2
+        //borderWidth: 2
     },
     buttonNoActive: {
         borderRadius: 20,
@@ -174,22 +181,25 @@ const style = StyleSheet.create({
     },
     selectFilter: {
         borderRadius: 20,
-        borderWidth: 2,
+        //borderWidth: 2,
         paddingHorizontal: 10,
-        paddingVertical: 5
-
+        paddingVertical: 5,
+        backgroundColor: "#99A9A6",
     },
     filterText: {
         fontSize: 10,
-        fontWeight: "700"
+        fontWeight: "700",
+        color: "#FFFFFF"
     },
     modelItem: {
-        borderWidth: 2,
+        //borderWidth: 2,
         flexDirection: "row",
         alignItems: "center",
         width: 150,
+        height: 25,
         justifyContent: "space-around",
-        borderRadius: 20
+        borderRadius: 20,
+        backgroundColor: "#99A9A6"
     },
     otherFilter: {
         flexDirection: "row",
@@ -204,7 +214,7 @@ const style = StyleSheet.create({
         width: 50,
         alignItems: "center",
         justifyContent: "center",
-        borderWidth: 2
+        //borderWidth: 2
     },
     buttonNoActiveModel: {
         borderRadius: 20,
@@ -216,16 +226,17 @@ const style = StyleSheet.create({
     switchTextModel: {
         fontSize: 10,
         fontWeight: "700",
+        color: "#FFFFFF"
     },
     scrollView: {
         flex: 1,
         //opacity: 0.05
     },
     listContainer: {
-        height: height - 335
+        height: height - 370
     },
     viewItem: {
-        borderWidth: 2,
+        //borderWidth: 2,
         width: 160,
         height: 130,
         borderRadius: 20,
@@ -233,6 +244,18 @@ const style = StyleSheet.create({
         justifyContent: "center",
         marginHorizontal: (width - 320) / 4,
         marginVertical: 20,
+        backgroundColor: "#D9D9D9"
+    },
+    shadow: {
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 5,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 5,
+
+        elevation: 10,
     },
 })
 

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Text, View, StyleSheet, SafeAreaView, TextInput, Button, Animated, Dimensions, Image, ScrollView, Pressable } from 'react-native';
 import { useRef } from 'react';
+import CircularProgress from 'react-native-circular-progress-indicator';
 
 const { width, height } = Dimensions.get("window");
 
@@ -43,7 +44,7 @@ const App = () => {
                 <View style={[{ flexDirection: "row", borderWidth: 1, width: width, marginTop: 70, alignItems: "center", justifyContent: "center", justifyContent: "space-between", paddingHorizontal: 30}]}>
                     <View>
                         <View style={style.viewDownLargCard}>
-                            
+                            <CircularProgress value={58} />
                         </View>
                     </View>
 
@@ -144,7 +145,7 @@ const style = StyleSheet.create({
         width: 165,
         height: 98,
         alignItems: "center",
-        backgroundColor: "#7E8E8C",
+        backgroundColor: "#99A9A6",
     },
     shadow: {
         shadowColor: "#000",
@@ -162,7 +163,7 @@ const style = StyleSheet.create({
         width: 165,
         height: 98,
         alignItems: "center",
-        backgroundColor: "#7E8E8C"
+        backgroundColor: "#99A9A6"
     },
     viewCardDown: {
         alignItems: "center"
@@ -175,7 +176,7 @@ const style = StyleSheet.create({
         alignItems: "center",
         flexDirection: "row",
         justifyContent: "space-between",
-        backgroundColor: "#7E8E8C"
+        backgroundColor: "#99A9A6"
     },
     viewTopButton: {
         alignItems: "center"
@@ -257,7 +258,7 @@ const style = StyleSheet.create({
         //backgroundColor: "#F0FBF9",
     },
     viewDownLargCard: {
-        //borderWidth: 1,
+        borderWidth: 1,
         flexDirection: "column",
         justifyContent: "space-between",
         height: 150,

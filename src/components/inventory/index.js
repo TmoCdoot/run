@@ -95,16 +95,17 @@ const style = StyleSheet.create({
         //justifyContent: "center"
     },
     title: {
-        marginTop: 100,
+        marginTop: 120,
         fontWeight: "700",
-        fontSize: 20
+        fontSize: 20,
+        color: "#555555"
     },
     scrollView: {
         flex: 1,
         opacity: 0.05
     },
     viewItem: {
-        borderWidth: 2,
+        //borderWidth: 2,
         width: 160,
         height: 130,
         borderRadius: 20,
@@ -112,9 +113,11 @@ const style = StyleSheet.create({
         justifyContent: "center",
         marginHorizontal: (width - 320) / 4,
         marginVertical: 20,
+        backgroundColor: "#CEDDDA"
     },
     listContainer: {
-        height: height - 200
+      marginTop: 10,
+      height: height - 200
     },
     noItem: {
         position: "absolute",
@@ -123,6 +126,9 @@ const style = StyleSheet.create({
         fontSize: 15,
         fontWeight: "700",
         color: "#BABABA"
+    },
+    img: {
+      transform: [{ rotateY: "180deg" }]
     }
 })
 

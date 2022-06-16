@@ -83,7 +83,8 @@ const style = StyleSheet.create({
         justifyContent: "space-between",
         marginBottom: 20,
         paddingHorizontal: 30,
-        alignItems: "flex-end"
+        alignItems: "flex-end",
+        zIndex: 989
     },
     viewTopLeft: {
         //borderWidth: 1,

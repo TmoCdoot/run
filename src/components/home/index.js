@@ -41,10 +41,21 @@ const App = () => {
 
                 <Text style={[{ fontSize: 20, fontWeight: "700", position: "absolute", left: 35, top: 25 }]}>Performances</Text>
 
-                <View style={[{ flexDirection: "row", borderWidth: 1, width: width, marginTop: 70, alignItems: "center", justifyContent: "center", justifyContent: "space-between", paddingHorizontal: 30}]}>
+                <View style={[{ flexDirection: "row", width: width, marginTop: 70, alignItems: "center", justifyContent: "center", justifyContent: "space-between", paddingHorizontal: 30}]}>
                     <View>
-                        <View style={style.viewDownLargCard}>
-                            <CircularProgress value={58} />
+                        <View style={[style.viewDownLargCard, style.shadow]}>
+                            <CircularProgress
+                                value={7}
+                                radius={50}
+                                duration={1000}
+                                progressValueColor={'#FFFFFF'}
+                                activeStrokeColor={'#00CA85'}
+                                maxValue={10}
+                                title={'Lvl'}
+                                titleColor={'#FFFFFF'}
+                                inActiveStrokeColor={'#94A3A1'}
+                                titleStyle={{fontWeight: '700', fontSize: 20}}
+                                />
                         </View>
                     </View>
 
@@ -258,9 +269,10 @@ const style = StyleSheet.create({
         //backgroundColor: "#F0FBF9",
     },
     viewDownLargCard: {
-        borderWidth: 1,
-        flexDirection: "column",
-        justifyContent: "space-between",
+       //borderWidth: 1,
+        //flexDirection: "column",
+        justifyContent: "center",
+        //alignContent: "center",
         height: 150,
         width: 150,
         alignItems: "center",

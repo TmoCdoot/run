@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Text, View, StyleSheet, SafeAreaView, TextInput, Button, Animated, Dimensions, Image, ScrollView, FlatList } from 'react-native';
+import { Text, View, StyleSheet, SafeAreaView, TextInput, Button, Animated, Dimensions, Image, ScrollView, FlatList, Modal } from 'react-native';
 import { useRef } from 'react';
+import Pressable from 'react-native/Libraries/Components/Pressable/Pressable';
 
 const { width, height } = Dimensions.get("window");
 
@@ -56,16 +57,25 @@ const DATA = [
     
   ];
   
-  const Item = ({ title }) => (
-    <View style={style.viewItem}>
-        <Image style={style.img} source={require('../../images/shoes.png')} />
-    </View>
-  );
+
 
 const App = () => {
+
+  const [modalVisible, setModalVisible] = useState(false);
+
     const renderItem = ({ item }) => (
         <Item title={item.title}/>
     );
+
+    const Item = ({ title }) => (
+      <Pressable onPress={() => setModalVisible(true)}>
+        <View style={style.viewItem}>
+          <Image style={style.img} source={require('../../images/shoes.png')} />
+        </View>
+      </Pressable>
+    );
+
+    
 
     return (
         <View style={[style.view, { width, height }]}>
@@ -81,16 +91,132 @@ const App = () => {
                     keyExtractor={item => item.id}
                     style={[style.scrollView, { width }]}
                 />
-            </View>
-                
+            </View>  
+
+          <View style={[{alignContent: "center", justifyContent: "center"}]}>
+            <Modal
+              animationType="slide"
+              transparent={true}
+              visible={modalVisible}
+              style={[{backgroundColor: "#F7F7F7"}]}
+              onRequestClose={() => {
+                Alert.alert("Modal has been closed.");
+                setModalVisible(!modalVisible);
+              }}
+            >
+              <View style={[{backgroundColor: "#000", width: width, height: height, opacity: 0.75}]} animationType="fade"></View>
+              <Pressable
+                onPress={() => setModalVisible(!modalVisible)}
+                style={style.button}
+              >
+                <Image style={style.imgClose} source={require('../../images/close.png')} />
+              </Pressable>
+              
+              <View style={style.containerModal}>
+                <View>
+
+                  <View style={[style.modalImage, style.shadow]}>
+                    <View style={style.containerViewItem}>
+                      <Image style={style.imgViewItem} source={require('../../images/shoes.png')} />
+                    </View>
+                  </View>
+
+                  <View style={[style.modalName, style.view]}>
+                    <Text style={[{fontSize: 24, fontWeight: "700", color: "#555555"}]}>X-Runner HIGH</Text>
+                    <Text style={[{fontSize: 14, fontWeight: "700", color: "#C1C1C1"}]}>Black and red</Text>
+                  </View>
+
+                  <View style={style.modalData}>
+                    <View style={[{flexDirection: "row"}]}>
+                        <View style={style.viewDownCard}>
+                            <View style={style.containerImg}>
+                                <Image style={style.cardImg} source={require('../../images/clock.png')} />
+                            </View>
+                            <View style={style.containerData}>
+                                <Text style={[{ fontSize: 10, fontWeight: "600", color: "#D9D9D9" }]}>Temps moyen</Text>
+                                <Text style={[{ fontSize: 12, fontWeight: "600", color: "#555555", marginTop: 5 }]}>29.5 min</Text>
+                            </View>
+
+                        </View>
+
+                        <View style={style.viewDownCard}>
+                            <View style={style.containerImg}>
+                                <Image style={style.cardImg} source={require('../../images/distance.png')} />
+                            </View>
+                            <View style={style.containerData}>
+                                <Text style={[{ fontSize: 10, fontWeight: "600", color: "#D9D9D9" }]}>Distance moyenne</Text>
+                                <Text style={[{ fontSize: 12, fontWeight: "600", color: "#555555", marginTop: 5 }]}>4.8 km</Text>
+                            </View>
+                        </View>
+                    </View>
+                        
+                    <View style={[{flexDirection: "row"}]}>
+                        <View style={style.viewDownCard}>
+                            <View style={style.containerImg}>
+                                <Image style={style.cardImg} source={require('../../images/speed.png')} />
+                            </View>
+                            <View style={style.containerData}>
+                                <Text style={[{ fontSize: 10, fontWeight: "600", color: "#D9D9D9" }]}>Vitesse moyen</Text>
+                                <Text style={[{ fontSize: 12, fontWeight: "600", color: "#555555", marginTop: 5 }]}>13.5 km/h</Text>
+                            </View>
+                        </View>
+
+                        <View style={style.viewDownCard}>
+                            <View style={style.containerImg}>
+                                <Image style={style.cardImg} source={require('../../images/speed.png')} />
+                            </View>
+                            <View style={style.containerData}>
+                                <Text style={[{ fontSize: 10, fontWeight: "600", color: "#D9D9D9" }]}>Vitesse moyen</Text>
+                                <Text style={[{ fontSize: 12, fontWeight: "600", color: "#555555", marginTop: 5 }]}>13.5 km/h</Text>
+                            </View>
+                        </View>
+                      
+                    </View>
+
+                        
+                  </View>
+
+                  <View style={[style.modalButton, style.shadow]}>
+                    <Pressable style={[style.button, style.shadow]} /* onPress={() => navigation.navigate('Slider')} */>
+                        <Text style={style.buttonText}>AMELIORER</Text>
+                    </Pressable>
+                  </View>
+                </View>
+              </View>
+              
+            </Modal>   
+          </View>
+            
+
         </View>
     )
 }
 
 
 const style = StyleSheet.create({
+  containerModal: {
+      height: height - 160,
+      borderTopLeftRadius: 50,
+      borderTopRightRadius: 50,
+      position: "absolute",
+      bottom: 0,
+      width: width,
+      backgroundColor: "#FFF",
+      justifyContent: "center",
+      alignItems: "center",
+    },
+    button: {
+      //backgroundColor: "yellow",
+      position: "absolute",
+      bottom: height - 120,
+      alignSelf: "center"
+    },
+    imgClose: {
+      width: 30,
+      height:30
+    },
     view: {
-        flex: 1,
+        //flex: 1,
         alignItems: "center",
         //justifyContent: "center"
     },
@@ -102,7 +228,7 @@ const style = StyleSheet.create({
     },
     scrollView: {
         flex: 1,
-        opacity: 0.05
+        //opacity: 0.05
     },
     viewItem: {
         //borderWidth: 2,
@@ -117,7 +243,7 @@ const style = StyleSheet.create({
     },
     listContainer: {
       marginTop: 10,
-      height: height - 200
+      height: height - 230
     },
     noItem: {
         position: "absolute",
@@ -129,7 +255,87 @@ const style = StyleSheet.create({
     },
     img: {
       transform: [{ rotateY: "180deg" }]
-    }
+    },
+    containerViewItem: {
+      width: 330,
+      height: 270,
+      backgroundColor: "#D9D9D9",
+      borderRadius: 50,
+      justifyContent: "center",
+      alignItems: "center"
+    },
+    imgViewItem: {
+      width: 150,
+      height: 150
+    },
+    modalName: {
+      marginTop: 20
+    },
+    modalData: {
+      marginTop: 20
+    },
+    modalButton: {
+      alignItems: "center"
+    },
+    containerImg: {
+      backgroundColor: "#D9D9D9",
+      height: 40,
+      width: 40,
+      justifyContent: "center",
+      alignItems: "center",
+      borderRadius: 10
+  },
+  cardImg: {
+      width: 20,
+      height: 20
+  },
+  containerData: {
+      marginLeft: 7,
+      height: 40,
+      //borderWidth: 1,
+      flexDirection: "column",
+  },
+  viewDownCard: {
+    //borderWidth: 1,
+    flexDirection: "row",
+    //justifyContent: "space-between",
+    width: 150,
+    height: 40,
+    alignItems: "center",
+    paddingHorizontal: 10,
+    borderRadius: 50,
+    marginTop: 10,
+    marginBottom: 5
+    //backgroundColor: "#F0FBF9",
+  },
+  button: {
+    backgroundColor: "#00CA85",
+    width: 170,
+    height: 36,
+    borderRadius: 50,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 17,
+    fontSize: 20
+  },
+  buttonText: {
+    fontSize: 16,
+    color: "#FFFFFF",
+    fontFamily: "Epilogue",
+    fontWeight: "700",
+    fontStyle: "normal"
+  },
+  shadow: {
+    shadowColor: "#000",
+    shadowOffset: {
+        width: 0,
+        height: 5,
+    },
+    shadowOpacity: 0.34,
+    shadowRadius: 4,
+
+    elevation: 10,
+},
 })
 
 export default App;

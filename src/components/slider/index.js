@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Text, View, StyleSheet, SafeAreaView, TextInput, Button, Animated, Dimensions, Image, ScrollView } from 'react-native';
+import Pressable from 'react-native/Libraries/Components/Pressable/Pressable';
 
 import Home from '../home';
 import Inventory from '../inventory';
@@ -8,12 +9,18 @@ import Shop from '../shop';
 
 const { width, height } = Dimensions.get("window");
 
+
+
 const App = () => {
+
+    const test = useRef()
+
 
     return (
         <View>
 
             <Animated.ScrollView
+            ref={test}
             horizontal
             snapToInterval={width}
             decelerationRate="fast"
@@ -42,9 +49,24 @@ const App = () => {
             </View>
 
             <View style={[style.container, {width}]}>
-                <Image style={style.img} source={require('../../images/run.png')} />
-                <Image style={style.img} source={require('../../images/inventory.png')} />
-                <Image style={style.img} source={require('../../images/bag.png')} />
+                <Pressable onPress={() => {
+                    test.current.scrollTo({x: 0, animated: true})}}
+                >
+                    <Image style={style.img} source={require('../../images/run.png')} />
+                </Pressable>
+                <Pressable onPress={() => {
+                    test.current.scrollTo({x: width, animated: true})}}
+                >
+                    <Image style={style.img} source={require('../../images/inventory.png')} />
+                </Pressable>
+                <Pressable onPress={() => {
+                    test.current.scrollTo({x: width*2, animated: true})}}
+                >
+                    <Image style={style.img} source={require('../../images/bag.png')} />
+                </Pressable>
+                
+                
+                
             </View>
         </View>
     )

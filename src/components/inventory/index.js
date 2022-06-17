@@ -19,39 +19,39 @@ const DATA = [
       title: 'Third Item',
     },
     {
-        id: '58694a0f-3da1-471f-bd96-145571e29d72',
+        id: '58694dazda0f-3da1-471f-bd96-145571e29d72',
         title: 'Third Item',
     },
     {
-        id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+        id: 'bd7acbdzadea-c1b1-46c2-aed5-3ad53abb28ba',
         title: 'First Item',
       },
       {
-        id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+        id: '3ac68adqsfc-c605-48d3-a4f8-fbd91aa97f63',
         title: 'Second Item',
       },
       {
-        id: '58694a0f-3da1-471f-bd96-145571e29d72',
+        id: '58694adqs0f-3da1-471f-bd96-145571e29d72',
         title: 'Third Item',
       },
       {
-          id: '58694a0f-3da1-471f-bd96-145571e29d72',
+          id: '58694dqsa0f-3da1-471f-bd96-145571e29d72',
           title: 'Third Item',
       },
       {
-        id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+        id: 'bd7acbea-cdqs1b1-46c2-aed5-3ad53abb28ba',
         title: 'First Item',
       },
       {
-        id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+        id: '3ac68afc-cdqs605-48d3-a4f8-fbd91aa97f63',
         title: 'Second Item',
       },
       {
-        id: '58694a0f-3da1-471f-bd96-145571e29d72',
+        id: '58694a0f-3dqsda1-471f-bd96-145571e29d72',
         title: 'Third Item',
       },
       {
-          id: '58694a0f-3da1-471f-bd96-145571e29d72',
+          id: '58694a0fdaz-3da1-471f-bd96-145571e29d72',
           title: 'Third Item',
       }
     
@@ -68,7 +68,7 @@ const App = () => {
     );
 
     const Item = ({ title }) => (
-      <Pressable onPress={() => setModalVisible(true)}>
+      <Pressable disabled={true} onPress={() => setModalVisible(true)}>
         <View style={[style.viewItem, style.shadow]}>
           <Image style={style.img} source={require('../../images/shoes.png')} />
         </View>
@@ -95,7 +95,7 @@ const App = () => {
 
           <View style={[{alignContent: "center", justifyContent: "center"}]}>
             <Modal
-              animationType="slide"
+              animationType="fade"
               transparent={true}
               visible={modalVisible}
               style={[{backgroundColor: "#F7F7F7"}]}
@@ -104,7 +104,9 @@ const App = () => {
                 setModalVisible(!modalVisible);
               }}
             >
+
               <View style={[{backgroundColor: "#000", width: width, height: height, opacity: 0.75}]}></View>
+
               <Pressable
                 onPress={() => setModalVisible(!modalVisible)}
                 style={style.buttonClose}
@@ -113,8 +115,8 @@ const App = () => {
               </Pressable>
               
               <View style={style.containerModal}>
-                <View>
 
+                <View>
                   <View style={[style.modalImage, style.shadow]}>
                     <View style={style.containerViewItem}>
                       <Image style={style.imgViewItem} source={require('../../images/shoes.png')} />
@@ -182,6 +184,7 @@ const App = () => {
                     </Pressable>
                   </View>
                 </View>
+
               </View>
               
             </Modal>   
@@ -228,7 +231,7 @@ const style = StyleSheet.create({
     },
     scrollView: {
         flex: 1,
-        //opacity: 0.05
+        opacity: 0.05
     },
     viewItem: {
         //borderWidth: 2,

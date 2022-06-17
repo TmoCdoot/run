@@ -69,7 +69,7 @@ const App = () => {
 
     const Item = ({ title }) => (
       <Pressable onPress={() => setModalVisible(true)}>
-        <View style={style.viewItem}>
+        <View style={[style.viewItem, style.shadow]}>
           <Image style={style.img} source={require('../../images/shoes.png')} />
         </View>
       </Pressable>
@@ -104,10 +104,10 @@ const App = () => {
                 setModalVisible(!modalVisible);
               }}
             >
-              <View style={[{backgroundColor: "#000", width: width, height: height, opacity: 0.75}]} animationType="fade"></View>
+              <View style={[{backgroundColor: "#000", width: width, height: height, opacity: 0.75}]}></View>
               <Pressable
                 onPress={() => setModalVisible(!modalVisible)}
-                style={style.button}
+                style={style.buttonClose}
               >
                 <Image style={style.imgClose} source={require('../../images/close.png')} />
               </Pressable>
@@ -128,7 +128,7 @@ const App = () => {
 
                   <View style={style.modalData}>
                     <View style={[{flexDirection: "row"}]}>
-                        <View style={style.viewDownCard}>
+                        <View style={[style.viewDownCard, { marginRight: 25}]}>
                             <View style={style.containerImg}>
                                 <Image style={style.cardImg} source={require('../../images/clock.png')} />
                             </View>
@@ -151,7 +151,7 @@ const App = () => {
                     </View>
                         
                     <View style={[{flexDirection: "row"}]}>
-                        <View style={style.viewDownCard}>
+                        <View style={[style.viewDownCard, { marginRight: 25}]}>
                             <View style={style.containerImg}>
                                 <Image style={style.cardImg} source={require('../../images/speed.png')} />
                             </View>
@@ -177,7 +177,7 @@ const App = () => {
                   </View>
 
                   <View style={[style.modalButton, style.shadow]}>
-                    <Pressable style={[style.button, style.shadow]} /* onPress={() => navigation.navigate('Slider')} */>
+                    <Pressable style={[style.button, style.shadow]}>
                         <Text style={style.buttonText}>AMELIORER</Text>
                     </Pressable>
                   </View>
@@ -205,7 +205,7 @@ const style = StyleSheet.create({
       justifyContent: "center",
       alignItems: "center",
     },
-    button: {
+    buttonClose: {
       //backgroundColor: "yellow",
       position: "absolute",
       bottom: height - 120,
@@ -269,10 +269,11 @@ const style = StyleSheet.create({
       height: 150
     },
     modalName: {
-      marginTop: 20
+      marginTop: 30
     },
     modalData: {
-      marginTop: 20
+      marginTop: 30,
+      marginBottom: 25
     },
     modalButton: {
       alignItems: "center"
@@ -331,8 +332,8 @@ const style = StyleSheet.create({
         width: 0,
         height: 5,
     },
-    shadowOpacity: 0.34,
-    shadowRadius: 4,
+    shadowOpacity: 0.25,
+    shadowRadius: 5,
 
     elevation: 10,
 },

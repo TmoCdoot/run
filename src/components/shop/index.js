@@ -93,13 +93,13 @@ const App = () => {
 
                     <View style={[style.modelItem, style.shadow]}>
                         <Pressable style={style.buttonNoActiveModel} /* onPress={() => navigation.navigate('Slider')} */>
-                            <Text style={style.switchTextModel}>Items</Text>
+                            <Text style={style.switchTextModel}>Sneakers</Text>
                         </Pressable>   
                         <Pressable style={style.buttonActiveModel} /* onPress={() => navigation.navigate('Slider')} */>
-                            <Text style={style.switchTextModel}>Booster</Text>
+                            <Text style={style.switchTextModel}>T-shirt</Text>
                         </Pressable>   
                         <Pressable style={style.buttonNoActiveModel} /* onPress={() => navigation.navigate('Slider')} */>
-                            <Text style={style.switchTextModel}>Coin</Text>
+                            <Text style={style.switchTextModel}>Bob</Text>
                         </Pressable>   
                     </View>
                 </View>
@@ -195,7 +195,7 @@ const style = StyleSheet.create({
         //borderWidth: 2,
         flexDirection: "row",
         alignItems: "center",
-        width: 150,
+        width: 170,
         height: 25,
         justifyContent: "space-around",
         borderRadius: 20,

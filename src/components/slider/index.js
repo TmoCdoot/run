@@ -13,8 +13,7 @@ const { width, height } = Dimensions.get("window");
 const App = () => {
 
     const test = useRef()
-    var [page, setPage] = useState(0)    
-    var [valScroll, setvalScroll] = useState()   
+    var [page, setPage] = useState(0)  
 
     return (
         <View>
@@ -29,7 +28,6 @@ const App = () => {
             pagingEnabled
             Ind
             onScroll={(event) => {
-                setvalScroll(event.nativeEvent.contentOffset.x)
                 if (event.nativeEvent.contentOffset.x > 0 && event.nativeEvent.contentOffset.x < width) {
                     setPage(0)
                 } else if (event.nativeEvent.contentOffset.x > width-100 && event.nativeEvent.contentOffset.x < width*2) {

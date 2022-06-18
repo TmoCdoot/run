@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
-import { Text, View, StyleSheet, SafeAreaView, TextInput, Button, Animated, Dimensions, Image, ScrollView, Pressable } from 'react-native';
+import { Text, View, StyleSheet, SafeAreaView, TextInput, Button, Animated, Dimensions, Image, ScrollView, Pressable, Modal } from 'react-native';
 import { useRef } from 'react';
 import CircularProgress from 'react-native-circular-progress-indicator';
 
 const { width, height } = Dimensions.get("window");
 
 const App = () => {
+
+    const [modalVisible, setModalVisible] = useState(false);
+
     return (
         <View style={[style.view, { width, height }]}>
 
@@ -93,14 +96,81 @@ const App = () => {
                     </View>
                 </View>
 
+                
                 <View style={style.viewTopButton}>
-                    <Pressable style={[style.button, style.shadow]} /* onPress={() => navigation.navigate('Slider')} */>
+                    <Pressable style={[style.button, style.shadow]} onPress={() => setModalVisible(true)}>
                         <Text style={style.buttonText}>START</Text>
                     </Pressable>
                 </View>
 
 
             </View>
+
+            <View>
+                <Modal
+                animationType="fade"
+                transparent={true}
+                visible={modalVisible}
+                style={[{backgroundColor: "#F7F7F7"}]}
+                >
+
+                    <View style={[{ borderWidth: 2, width: width, height: height, opacity: 0.8, backgroundColor: "#000"}]}></View>
+
+                    <View style={[{ width: 365, height: 282, backgroundColor: "#F6F6F6", position: "absolute", justifyContent: "center", alignItems: "center", top: height/2-176, left: width/2-182, borderRadius: 50}]}>
+                        
+                        <View style={[{ flexDirection: "row", justifyContent: "space-around", width: width-20}]}>
+                            <Pressable style={[{width: 142, height: 56, backgroundColor: "#CA0000", alignItems: "center", justifyContent: "center", borderRadius: 50}, style.shadow]} onPress={() => setModalVisible(false)}>
+                                <Text style={style.buttonText}>Stop</Text>
+                            </Pressable>
+                            <Pressable style={[{width: 142, height: 56, backgroundColor: "#CA6100", alignItems: "center", justifyContent: "center", borderRadius: 50}, style.shadow]} /* onPress={() => navigation.navigate('Slider')} */>
+                                <Text style={style.buttonText}>Pause</Text>
+                            </Pressable>
+                        </View>
+
+                        <View style={[{ alignItems: "center", justifyContent: "space-around", width: width-20, marginTop: 20}]}>
+                            <Text style={[{fontSize: 40, fontWeight: "700"}]}>0.85</Text>
+                            <Text  style={[{fontSize: 20, fontWeight: "700", color: "#555555"}]}>Kilomètres</Text>
+                        </View>
+
+                        <View style={[{flexDirection: "row", width: width-20, justifyContent: "center", marginTop: 20}]}>
+
+                            <View style={style.viewDownCardRun}>
+                                <View style={style.containerImg}>
+                                    <Image style={style.cardImg} source={require('../../images/clock.png')} />
+                                </View>
+                                <View style={style.containerData}>
+                                    <Text style={[{ fontSize: 10, fontWeight: "600", color: "#555555" }]}>Temps</Text>
+                                    <Text style={[{ fontSize: 12, fontWeight: "600", color: "#000000", marginTop: 5 }]}>29.5 min</Text>
+                                </View>
+
+                            </View>
+
+                            <View style={style.viewDownCardRun}>
+                                <View style={style.containerImg}>
+                                    <Image style={style.cardImg} source={require('../../images/distance.png')} />
+                                </View>
+                                <View style={style.containerData}>
+                                    <Text style={[{ fontSize: 10, fontWeight: "600", color: "#555555" }]}>Coin</Text>
+                                    <Text style={[{ fontSize: 12, fontWeight: "600", color: "#000000", marginTop: 5 }]}>4.8 km</Text>
+                                </View>
+                            </View>
+
+                            <View style={style.viewDownCardRun}>
+                                <View style={style.containerImg}>
+                                    <Image style={style.cardImg} source={require('../../images/speed.png')} />
+                                </View>
+                                <View style={style.containerData}>
+                                    <Text style={[{ fontSize: 10, fontWeight: "600", color: "#555555" }]}>Vitesse</Text>
+                                    <Text style={[{ fontSize: 12, fontWeight: "600", color: "#000000", marginTop: 5 }]}>13.5 km/h</Text>
+                                </View>
+                            </View>
+
+                        </View>
+                    </View>
+
+                </Modal>
+            </View>
+
 
         </View>
     )
@@ -264,6 +334,20 @@ const style = StyleSheet.create({
         alignItems: "center",
         paddingHorizontal: 10,
         borderRadius: 50,
+        marginTop: 10,
+        marginBottom: 5
+        //backgroundColor: "#F0FBF9",
+    },
+    viewDownCardRun: {
+        //borderWidth: 1,
+        flexDirection: "row",
+        //justifyContent: "space-between",
+        width: 120,
+        height: 40,
+        alignItems: "center",
+        justifyContent: "center",
+        //paddingLeft: 5,
+        //borderRadius: 50,
         marginTop: 10,
         marginBottom: 5
         //backgroundColor: "#F0FBF9",

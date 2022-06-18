@@ -99,10 +99,6 @@ const App = () => {
               transparent={true}
               visible={modalVisible}
               style={[{backgroundColor: "#F7F7F7"}]}
-              onRequestClose={() => {
-                Alert.alert("Modal has been closed.");
-                setModalVisible(!modalVisible);
-              }}
             >
 
               <View style={[{backgroundColor: "#000", width: width, height: height, opacity: 0.75}]}></View>

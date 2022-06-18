@@ -91,9 +91,12 @@ const style = StyleSheet.create({
         alignItems: "center"
     },
     buttonSingUp: {
+        //backgroundColor: "#99A9A6",
         position: "absolute",
         bottom: 70,
         color: "#00CA85",
+        fontWeight: "700",
+        padding: 10,
         fontSize: 17
     },
     shadow: {
